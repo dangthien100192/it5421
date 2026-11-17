@@ -1,0 +1,7 @@
+sample_id,cwe,is_vulnerable
+S001,CWE-89,1
+S002,CWE-89,0
+S003,CWE-502,1
+S004,CWE-502,0
+S005,CWE-328,1
+S006,CWE-328,0

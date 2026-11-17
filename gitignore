@@ -1,0 +1,77 @@
+# E2-Codex: Python / PyCharm
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# Virtual environments and machine-specific config
+.venv/
+venv/
+env/
+ENV/
+.env
+.env.*
+!.env.example
+*.local
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Packaging and builds
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Runtime logs and temp files
+*.log
+*.tmp
+*.bak
+*.swp
+~$*
+
+# Generated E2 benchmark workspaces (large, reproducible datasets)
+E2-workspaces/
+E2-OWASP-workspaces/
+E2-OWASP-Java-workspaces/
+work/
+
+# Generated findings, benchmark labels and derived reports
+# (Keep source code, README, AGENTS.md and prompts/ under version control)
+**/results/
+**/patched/
+**/evaluation/
+**/repair_scan/
+**/patched_backup/
+**/ai.json
+**/triage.json
+**/sast.json
+**/semgrep.json
+**/bandit.json
+**/scan_status.json
+**/metrics.json
+**/metrics.csv
+**/truth.csv
+**/hashes.json
+**/audit_detail.csv
+
+# Secrets / credentials
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+id_rsa*
+id_ed25519*

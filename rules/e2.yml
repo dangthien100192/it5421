@@ -1,0 +1,19 @@
+rules:
+  - id: e2-sql-concat
+    languages: [python]
+    severity: ERROR
+    message: SQL constructed by concatenation
+    metadata: {cwe: CWE-89}
+    pattern: $C.execute($A + $B)
+  - id: e2-pickle
+    languages: [python]
+    severity: ERROR
+    message: Unsafe pickle deserialization
+    metadata: {cwe: CWE-502}
+    pattern: pickle.loads(...)
+  - id: e2-md5
+    languages: [python]
+    severity: WARNING
+    message: Weak hash in security context
+    metadata: {cwe: CWE-328}
+    pattern: hashlib.md5(...)
