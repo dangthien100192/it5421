@@ -1,4 +1,5 @@
-# E2-Codex — Phân tích và vá lỗ hổng bảo mật bằng Codex trong PyCharm
+# E2 - AI phát hiện và vá lỗ hổng so với công cụ phân tích tĩnh (Codex GPT vs Bandit & Semgrep)
+
 
 > **Mục tiêu:** So sánh khả năng phát hiện lỗ hổng của **Semgrep**, **Bandit**, **Codex độc lập (Blind)** và **SAST + Codex (Hybrid)**; sau đó thử nghiệm sinh bản vá bằng Codex. Dự án dùng **Codex tích hợp trong PyCharm với tài khoản ChatGPT Plus**. Các script Python xử lý dữ liệu, chạy công cụ SAST, chuẩn hóa và chấm điểm; **không tự động gọi Codex**.
 
