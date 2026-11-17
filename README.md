@@ -1,20 +1,10 @@
 # E2 - AI phát hiện và vá lỗ hổng so với công cụ phân tích tĩnh (Codex GPT vs Bandit & Semgrep)
 
 
-> **Mục tiêu:** So sánh khả năng phát hiện lỗ hổng của **Semgrep**, **Bandit**, **Codex độc lập (Blind)** và **SAST + Codex (Hybrid)**; sau đó thử nghiệm sinh bản vá bằng Codex. Dự án dùng **Codex tích hợp trong PyCharm với tài khoản ChatGPT Plus**. Các script Python xử lý dữ liệu, chạy công cụ SAST, chuẩn hóa và chấm điểm; **không tự động gọi Codex**.
+> **Mục tiêu:** So sánh khả năng phát hiện lỗ hổng của SAST (**Semgrep**, **Bandit**) so với **AI Codex** và **SAST + Codex (Hybrid)**; sau đó thử nghiệm sinh bản vá bằng Codex. Dự án dùng **Codex tích hợp trong PyCharm với tài khoản ChatGPT Plus**. Các script Python xử lý dữ liệu, chạy công cụ SAST, chuẩn hóa và chấm điểm; **không tự động gọi Codex**.
 
-## 1. Chọn đúng quy trình
 
-Dự án có **hai pipeline độc lập**, không được dùng lẫn workspace hoặc file kết quả:
-
-| Pipeline | Script | Dữ liệu | Workspace mặc định | Dùng khi nào |
-|---|---|---|---|---|
-| **Demo** | `pipeline.py` | 6 file Python tự tạo trong `demo_source/` | `../E2-workspaces/` | Kiểm tra logic pipeline ở quy mô nhỏ |
-| **Nghiên cứu OWASP** | `owasp_pipeline.py` | OWASP Benchmark Python v0.1, clone bên ngoài | `../E2-OWASP-workspaces/` | Thực nghiệm chính thức và tính chỉ số |
-
-**Nếu đang làm thí nghiệm OWASP 200 testcase:** đi thẳng đến **[README_OWASP.md](README_OWASP.md)**. README này giải thích kiến trúc chung và cách thử demo.
-
-## 2. Cấu trúc thư mục project
+## 1. Cấu trúc thư mục project
 
 ```text
 E2-Codex/                        # Thư mục gốc, mở trong PyCharm để chạy pipeline
@@ -72,7 +62,7 @@ D:/DT/2025.B1/IT5421-CD1/
 
 **Workspace OWASP có tên prompt khác với demo:** `PROMPT_DETECT.md`, `PROMPT_TRIAGE.md`, `PROMPT_REPAIR.md`. Xem cây thư mục đầy đủ trong [README_OWASP.md](README_OWASP.md).
 
-## 3. Chuẩn bị môi trường Windows / PyCharm
+## 2. Chuẩn bị môi trường Windows / PyCharm
 
 **Yêu cầu:** Git (nếu dùng OWASP), Python, PyCharm, tài khoản ChatGPT có thể truy cập Codex trong JetBrains, mạng để lấy Semgrep rules lần đầu (khi dùng `p/python`). Đảm bảo lệnh `semgrep` thực thi được trong đúng Terminal/venv. Nếu bản Semgrep trên Windows gặp lỗi, có thể dùng môi trường Linux/WSL tương thích; phải ghi nhận môi trường thực nghiệm.
 
@@ -93,7 +83,7 @@ Nếu PowerShell không cho phép chạy `Activate.ps1`, có thể gọi trực 
 
 **Lưu ý phiên bản:** `requirements.txt` trong bản phát hành này pin `bandit==1.8.6`, `semgrep==1.150.0`, `pytest==8.3.5`. Nếu bạn đã nâng cấp Semgrep/Bandit để xử lý lỗi parser hoặc JSON, hãy ghi phiên bản thực tế (`versions.json`) và cố định môi trường trước khi đánh giá.
 
-## 4. Chạy thử pipeline DEMO: từng bước
+## 3. Chạy thử pipeline DEMO: từng bước
 
 > Nếu đã có `../E2-workspaces/`, **không chạy lại `prepare`** trên cùng đường dẫn: lệnh chủ động dừng để không ghi đè kết quả. Hãy sao lưu/đổi tên workspace cũ nếu muốn làm lại.
 
