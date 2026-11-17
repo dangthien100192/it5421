@@ -1,4 +1,4 @@
-# E2 — Hướng dẫn clone và đánh giá Codex trên nguồn dữ liệu OWASP Benchmark 
+# E2 — Hướng dẫn clone và chạy trên bộ dữ liệu OWASP Benchmark 
 
 > **Windows 11, PowerShell, PyCharm, Codex qua đăng nhập ChatGPT**. Đây là quy trình cho `owasp_pipeline.py`, **không phải** pipeline demo `pipeline.py`.Codex chạy thủ công trong PyCharm; Python điều phối bộ dữ liệu, SAST và đánh giá.
 
@@ -59,8 +59,6 @@ python -m bandit --version
 semgrep --version
 python owasp_pipeline.py --help
 ```
-
-`requirements.txt` của bản ZIP gốc pin `bandit==1.8.6`, `semgrep==1.150.0`, `pytest==8.3.5`. Nếu đã cập nhật công cụ để xử lý lỗi thực tế, dùng phiên bản đã kiểm thử và ghi lại trong `versions.json`. Semgrep Registry `p/python` có thể cần mạng để tải rules; chạy trong WSL/Linux tương thích khi môi trường Windows có vấn đề.
 
 > **Phân biệt:** OWASP repo có file `expectedresults-0.1.csv` thuộc nguồn chính thức; file `truth.csv` do `import-owasp` tạo từ một tập con. Không tự điền nhãn hoặc dùng dự đoán Codex làm Ground Truth.
 
@@ -140,11 +138,6 @@ python owasp_pipeline.py import-owasp --repo .\owasp-benchmark --limit 200 --see
 
 **Không gọi lại `import-owasp` nếu workspace đích đã tồn tại.** Script chủ động từ chối ghi đè nhằm bảo vệ các kết quả đã có. Muốn thử cấu hình khác, sử dụng `--work` mới:
 
-```powershell
-python owasp_pipeline.py import-owasp --repo .\owasp-benchmark --limit 0 --seed 42 --work ..\E2-OWASP-all
-```
-
-Số mẫu toàn bộ được đọc từ nhãn trong checkout thực tế, không phải một hằng số cố định.
 
 ### 4.1 Cây thư mục sau khi import
 
